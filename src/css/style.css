@@ -1,0 +1,135 @@
+@media print{
+
+    .oculto-impresion, .oculto-impresion *{
+  
+      display: none !important;
+  
+    }
+  
+  }
+
+        .nombre {
+            width: 600px;
+            
+        }
+
+        .es {
+            padding: 2%;
+        }
+
+        .d{
+            padding: 2%;
+        
+        }
+
+        .direccion-2 {
+            width: 600px;
+        }
+
+        #b {
+            width: 250px;
+        }
+
+        .municipio {
+            width: 250px;
+        }
+
+        .registro {
+            padding: 2%;
+
+        }
+
+        .resgistr {
+            width: 600px;
+        }
+
+        .nt {
+            padding-right: 1px;
+        }
+
+        .ni {
+            width: 400px;
+        }
+
+        .g {
+            padding: 2%;    
+        }
+
+        .gr {
+            width: 1000px;
+        }
+
+        .cd {
+            padding: 2%;
+        }
+
+        .cm {
+            width: 500px;
+        }
+
+        .vde {
+            width: 500px;
+        }
+
+        .ctn {
+            padding: 3%;
+        }
+
+        .cat {
+            width: 90px;
+            text-align: center;
+        }
+
+        .tx {
+            width: 700px;
+            text-align: center;
+        }
+
+        .can {
+            padding: 2%;
+            text-align: center;
+        }
+
+
+        .cnac {
+            width: 90px;
+        }
+
+        .pod {
+            width: 680px;
+            text-align: center;
+        }                                                                                                       
+
+        .son {
+            padding: 3%;
+        }
+
+        .cso {
+            width: 600px;
+        }
+
+        .pr {
+            padding-left: 100%;                                                                                                                                                 
+        }
+
+        .btn_suma {
+            font-family: Arial;
+        }
+
+        .mul {
+            padding: 2%
+        }
+
+    .input-group-addon
+    {
+        background-color:#FFF;
+    }
+    .input-group .input-group-addon + .form-control
+    {
+        border-left:none;
+    }   
+
+    .not-visible {
+        visibility: hidden;
+    }
+

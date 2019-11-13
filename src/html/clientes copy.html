@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="../../Themes Boostrap/bootstrap.litera.css">
+  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+  
+  <title>Factura</title>
+</head>
+
+
+    
+<script>
+
+</script>
+  <form action="creditoe copy.html" method="get">
+      <table class="tabla">
+          <tr>
+              <td class="es"><input type="text" id="nombre" placeholder="Nombre" class="nombre form-control" style="padding: 3%" name="n"></td>
+             
+          </tr>
+  
+          <tr>
+              <td class="d"><textarea  id="dir" placeholder="Direccion" class="direccion-2 form-control" cols="1" rows="2" name="d"></textarea></td>
+          <td class="m"><input type="text" id="direccion" placeholder="Municipio" class="municipio form-control" style="padding: 3%" name="m"></td>
+          <td class="de"><input type="text" id="departamento" placeholder="Departamento" class="dir form-control" style="padding: 3%" name="de" ></td>
+  
+          </tr>
+  
+  </table>
+  
+  <table>
+      <td class="registro"><input type="text" id="registro" placeholder="Registro De IVA" class="resgistr form-control" style="padding: 3%"  name="r"></td>
+  <td class="nt"><input type="text" id="nit" placeholder="NIT" class="ni form-control" style="padding: 3%" name="na"></td>
+  </table>
+  
+  <table>
+      <td class="g"><input type="text" id="gi" placeholder="GIRO" class="gr form-control" style="padding: 3%" name="g"></td> 
+  </table>
+  <table>
+    <td class="s"><input type="text" id="phone" placeholder="Telefono" class="gr form-control" style="padding: 3%"></td> 
+</table>
+
+  
+  
+  <input type="hidden" class="not-visible form-control" value="0" disabled style="padding: 5%; background: white" id="total">
+  <input type="submit" value="Crear Nueva Factura" class="btn btn-success">
+  </form>
+
+        <button class="btn btn-primary oculto-impresion" id="boton" onclick="guardar()" >
+          Guardar
+        </button>
+        
+     
+    </div>
+  
+     <table class="table my-3">
+        <thead>
+          <tr>
+          
+            
+          </tr>
+        </thead>
+        <tbody id="tabla">
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          
+        </tbody>
+      </table>
+     
+      <h1 class="btn btn-danger"><a href="../../index.html" style="color: white" >Volver</a></h1 >  
+     
+</script>
+<script src="../js/clientes copy.js"></script>
+
+</body>
+
+</html>
+
+

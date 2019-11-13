@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ver Todo</title>
+    <link rel="stylesheet" href="index.css">
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+<link rel="stylesheet" href="../Themes Boostrap/bootstrap.litera.css">
+</head>
+<body>
+    <h1 style="text-align: center; color: white">Bienvenido A Wordnet 5 </h1>
+
+
+
+    <h1 class="btn btn-danger"><a href="../index.html" style="color: white" >Volver</a></h1 >
+     
+        <h2 style="text-align: center; color: white" >Base De Clientes</h2>
+        <table class="table my-3">
+          <thead style="color: white">
+            <tr>
+             
+              
+              
+              
+            </tr>
+          </thead>
+          <tbody id="tabla">
+            <tr style="color: white">
+              <th scope="row">1</th>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr style="color: white">
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            
+          </tbody>
+        </table>
+    
+        <div class="container">
+          <!-- <table class="tabla">
+            <tr>
+                <td class="es"><input type="text" id="nombre" placeholder="Nombre" class="nombre"></td>
+                <td class="text"><input type="text" id="fa" placeholder="Fecha" class="fecha"></td>
+                
+            </tr>
+    
+            <tr>
+                <td class="d"><input type="text" id="dir" placeholder="Direccion" class="direccion-2"></td>
+            <td class="m"><input type="text" id="direccion" placeholder="Municipio" class="municipio"></td>
+            <td class="de"><input type="text" id="departamento" placeholder="Departamento" class="dir"></td>
+    
+            </tr>
+    
+    </table>
+    
+    <table>
+        <td class="registro"><input type="text" id="regist" placeholder="Registro De IVA" class="resgistr"></td>
+    <td class="nt"><input type="text" id="nit" placeholder="NIT" class="ni"></td>
+    </table>
+    
+    <table>
+        <td class="g"><input type="text" id="gi" placeholder="GIRO" class="gr"></td> 
+    </table>
+    
+    <table>
+        <td class="cd"><input type="text" id="cp" placeholder="Condiciones De Pago" class="cm"></td>
+        <td class="vd"><input type="text" id="vc" placeholder="Venta A Cuenta De" class="vde"></td>  
+    </table>
+     -->
+    <!-- <table>
+      <thead>
+          <tr>
+              <th>producto</th>
+              <th>Precio por unidad</th>
+              <th>Cantidad</th>
+              <th>Precio por producto</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>
+              <input type="text" name="des" value=""style="padding: 10%" id="des">
+              </td>
+              <td>
+                  <input type="text" class="monto input" name="unitario" value="" style="padding: 10%" id="des2">
+              </td>
+              <td>
+                  <input type="text" class="monto input" name="cantidad" value=""style="padding: 10%" id="des3">
+              </td>
+              <td>
+                  <input type="text" class="monto total" value="0" disabled style="padding: 10%" id="total">
+              </td>
+          </tr>
+          <tr>
+              <td>
+                 <input type="text" name="des2" value="" style="padding: 10%" id="des4"> 
+              </td>
+              <td>
+                  <input type="text" class="monto input"  name="unitario2" value="" style="padding: 10%" id="des5">
+              </td>
+              <td>
+                  <input type="number" class="monto input" name="cantidad2" value=""style="padding: 10%" id="des6">
+              </td>
+              <td>
+                  <input type="text" class="monto total" value="0" disabled style="padding: 10%" id="des7">
+              </td>
+          </tr>
+          <tr>
+              <td>
+               <input type="text" name="descr3" value="" style="padding: 10%" id="des8">
+              </td>
+              <td>
+                  <input type="number" class="monto input" name="unitario2" value="" style="padding: 10%" id="des9">
+              </td>
+              <td>
+                  <input type="number" class="monto input" name="cantidad3" value="" style="padding: 10%" id="des10">
+              </td>
+              <td>
+                  <input type="text" class="monto total" value="0" disabled style="padding: 10%" id="des11">
+              </td>
+              
+          </tr>
+          <tr>
+              <td></td>
+              <td></td>
+              <td>
+                  Total
+              </td>
+              <td>
+                  <input type="text" id="multiplicando"  class="monto totales" name="afectas" value="" disabled  onChange="multiplicar();" style="padding: 10%"> 
+              </td>
+          </tr>
+      </tbody>
+    </table>
+    
+    <button class="btn btn-primary oculto-impresion"id="boton" onclick="guardar()" >
+        Guardar Factura
+      </button>
+           -->
+    
+    
+    <script src="js/fire.js"></script>
+    <script src="../print.js"></script>  
+</body>
+</html>
+    
+
+

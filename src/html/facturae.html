@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.3.1/united/bootstrap.min.css">
+  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"></script>
+  <title>Factura</title>
+</head>
+<body>
+
+    <input type="file" id="file" class="oculto-impresion" accept="image/*" onchange="mostrar()"/>
+    <br>
+    <img id="img"/>
+    
+<script>
+
+</script>
+      <table class="tabla">
+        <tr>
+            <td class="es"><input type="text" id="nombre" placeholder="Nombre" class="nombre form-control" style="padding: 3%" value="Nombre:"></td>
+            <td class="text"><input type="date" id="fa" placeholder="Fecha" class="fecha form-control" style="padding: 3%"></td>
+            
+        </tr>
+
+        <tr>
+            <td class="d"><textarea  id="dir" placeholder="Direccion" class="direccion-2 form-control" cols="1" rows="2">Direccion:</textarea></td>
+        <td class="m"><input type="text" id="direccion" placeholder="Municipio" class="municipio form-control" style="padding: 3%" value="Direccion:"></td>
+        <td class="de"><input type="text" id="departamento" placeholder="Departamento" class="dir form-control" style="padding: 3%" value="Municipio:"></td>
+
+        </tr>
+
+</table>
+
+<table>
+    <td class="registro"><input type="text" id="registro" placeholder="Registro De IVA" class="resgistr form-control" style="padding: 3%" value="IVA:"></td>
+<td class="nt"><input type="text" id="nit" placeholder="NIT" class="ni form-control" style="padding: 3%"></td>
+</table>
+
+<table>
+    <td class="g"><input type="text" id="gi" placeholder="GIRO" class="gr form-control" style="padding: 3%" value="GIRO:"></td> 
+</table>
+
+
+<table>
+    <td class="cd"><input type="text" id="cp" placeholder="Condiciones De Pago" class="cm form-control" style="padding: 3%" value="Condiciones De Pago:"></td>
+    <td class="vd"><input type="text" id="vc" placeholder="Venta A Cuenta De" class="vde form-control" style="padding: 3%" value="Venta A Cuenta De:"></td>  
+</table>
+
+<img src="../img/n1.png" alt="">
+<table>
+  <thead>
+      <tr>
+            <th>Cantidad</th>
+          <th>producto</th>
+          <th>Precio por unidad</th>
+          <th><img src="../img/4.png" alt=""></th>
+          <th>Precio por producto</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          
+          <td>
+              <input type="text" class="monto input form-control" name="unitario" value="" style="padding: 5%" id="des2">
+          </td>
+          <td>
+                <input type="text" name="des" value=""style="padding: 5%" id="des" class="form-control">
+                </td>
+          <td>
+              <input type="text" class="monto input form-control" name="cantidad" value=""style="padding: 1%" id="des3">
+          </td>
+
+          <td>
+              <img src="../img/3.png" alt="">
+          </td>
+          <td>
+               <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="text" class="monto total form-control" value="0" disabled style="padding: 5%" id="des7">
+                </div>
+             
+              <input type="hidden" class="not-visible form-control" value="0" disabled style="padding: 5%; background: white" id="total">
+          </td>
+      </tr>
+      <tr>
+         
+          <td>
+              <input type="text" class="monto input form-control"  name="unitario2" value="" style="padding: 5%" id="des5">
+          </td>
+          <td>
+                <input type="text" name="des2" value="" style="padding: 5%" id="des4" class="form-control"> 
+             </td>
+          <td>
+              <input type="number" class="monto input form-control" name="cantidad2" value=""style="padding: 5%" id="des6">
+          </td>
+
+          <td>
+                <img src="../img/3.png" alt="">
+            </td>
+          <td>
+              <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="text" class="monto total form-control" value="0" disabled style="padding: 5%" id="des7">
+                </div>
+             
+          </td>
+      </tr>
+      <tr>
+          
+        
+          <td>
+              <input type="number" class="monto input form-control" name="unitario2" value="" style="padding: 5%" id="des9">
+          </td>
+          <td>
+                <input type="text" name="descr3" value="" style="padding: 5%" id="des8" class="form-control">
+               </td>
+          
+          <td>
+            
+              <input type="number" class="monto input form-control" name="cantidad3" value="" style="padding: 5%" id="des10">
+          </td>
+
+          <td>
+                <img src="../img/3.png" alt="">
+            </td>
+          <td>
+              <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="text" class="monto total form-control" value="0" disabled style="padding: 5%" id="des11">
+                </div>
+            
+          </td>
+          
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>
+            <h5 id="mostrarAca"></h5> 
+            <input type="text" style="width: 60%" value="00/100" class="form-control"> 
+          </td>
+          <td>  
+       
+            <div>
+              Sumas
+              <input type="submit"id=""  class="monto totales form-control" name="afectas" value=""  onChange="multiplicar();"  onblur="document.getElementById('uno').value=this.value" style= "text-align: right" >
+            </div>
+             <div>
+                
+               Subtotal
+               <input type="text" onkeyup="mostrarNumero(this)"placeholder=""  class="form-control" style="text-align: right"> 
+               
+             </div>
+  
+             <div>
+              Total<input type="text"  value="" id="uno" placeholder="Recibe contenido"  class="form-control" onblur="document.getElementById('uno').value=this.value" onkeyup="PasarValor()">    
+             </div>         
+           
+        
+
+<h5 id="mostrarAca" translate="yes"></h5>
+</script>
+</table>
+<img src="../img/firmas3.png" alt="" >
+
+        <button class="btn btn-primary oculto-impresion"id="boton" onclick="guardar()" >
+          Guardar Factura
+        </button>
+        
+        <button onclick="javascript:imprimir()" class="oculto-impresion btn btn-success"">Imprimir</button>
+
+    </div>
+  
+    <!-- <table class="table my-3">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Direccion</th>
+            <th scope="col"></th>
+            
+            
+          </tr>
+        </thead>
+        <tbody id="tabla">
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          
+        </tbody>
+      </table>
+     -->
+     <h1 class="btn btn-danger oculto-impresion"><a href="../../index.html" style="color: white" >Volver</a></h1 > 
+     
+</script>
+<script src="../js/fire.js"></script>
+<script src="../js/print.js"></script>
+<script src="../js/factura.js"></script>
+<script src="../js/credito.js"></script>
+<script src="../pruebas/new.js"></script>
+<script src="../pruebas/js/jquery-2.2.0.min.js"></script>
+<script src="../pruebas/js/jquery-live-preview.js"></script>
+
+<!--SCRIPT PARA OBTENR DATOS-->
+
+<script type="text/javascript">
+  var url_string = window.location.href; //
+  var url = new URL(url_string);
+  var uno = url.searchParams.get("n");
+  var dos = url.searchParams.get("d");
+  var tres = url.searchParams.get("m");
+  var cuatro = url.searchParams.get("de");
+  var cinco = url.searchParams.get("r");
+  var seis = url.searchParams.get("na");
+  var siete = url.searchParams.get("g");
+  
+  document.getElementById("nombre").value = uno;
+  
+  document.getElementById("dir").value = dos;
+  
+  document.getElementById("direccion").value = tres;
+  
+  document.getElementById("departamento").value = cuatro;
+  
+  document.getElementById("registro").value = cinco;
+  
+  document.getElementById("nit").value = seis;
+  document.getElementById("gi").value = siete;
+  </script>   
+  </body>
+  
+  </html>
+</body>
+
+</html>
+

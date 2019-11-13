@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-firestore.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="
+    crossorigin="anonymous"></script>
+  <title>Factura</title>
+</head>
+<body>
+  
+
+    <input type="file" id="file" class="oculto-impresion" accept="image/*" onchange="mostrar()"/ height="161" width="400">
+    <br>
+    <img id="img"/>
+    
+<script>
+
+</script>
+      <table class="tabla">
+        <tr>
+            <td class="es"><input type="text" id="nombre" placeholder="Nombre" class="nombre form-control" style="padding: 3%" ></td>
+            <td class="text"><input type="date" id="fa" placeholder="Fecha" class="fecha form-control" style="padding: 3%"></td>
+            
+        </tr>
+
+        <tr>
+            <td class="d"><textarea  id="dir" placeholder="Direccion" class="direccion-2 form-control" cols="1" rows="2"></textarea></td>
+        <td class="m"><input type="text" id="direccion" placeholder="Municipio" class="municipio form-control" style="padding: 3%" ></td>
+        <td class="de"><input type="text" id="departamento" placeholder="Departamento" class="dir form-control" style="padding: 3%" ></td>
+
+        </tr>
+
+</table>
+
+<table>
+    <td class="registro"><input type="text" id="registro" placeholder="Registro De IVA" class="resgistr form-control" style="padding: 3%" ></td>
+<td class="nt"><input type="text" id="nit" placeholder="NIT" class="ni form-control" style="padding: 3%"></td>
+</table>
+
+<table>
+    <td class="g"><input type="text" id="gi" placeholder="GIRO" class="gr form-control" style="padding: 3%" ></td> 
+</table>
+
+
+<table>
+    <td class="cd"><input type="text" id="cp" placeholder="Condiciones De Pago" class="cm form-control" style="padding: 3%"></td>
+    <td class="vd"><input type="text" id="vc" placeholder="Venta A Cuenta De" class="vde form-control" style="padding: 3%"></td>  
+</table>
+
+<img src="../img/n1.png" alt="">
+<table>
+  <thead>
+      <tr>
+            <th>Cantidad</th>
+          <th>Producto</th>
+          <th>Precio por unidad</th>
+          <th><img src="../img/2.png" alt=""></th>
+          <th>Precio por producto</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          
+          <td>
+              <input type="text" class="monto input form-control" name="unitario" value="" style="padding: 5%" id="des2">
+          </td>
+          <td>
+                <input type="text" name="des" value=""style="padding: 5%" id="des" class="form-control">
+                </td>
+          <td>
+              <input type="text" class="monto input form-control" name="cantidad" value=""style="padding: 1%" id="des3">
+          </td>
+
+          <td>
+              <img src="../img/c6.png" alt="">
+          </td>
+          <td>
+               <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="text" class="monto total form-control" value="0" disabled style="padding: 5%" id="des7">
+                </div>
+             
+              <input type="hidden" class="not-visible form-control" value="0" disabled style="padding: 5%; background: white" id="total">
+          </td>
+      </tr>
+      <tr>
+         
+          <td>
+              <input type="text" class="monto input form-control"  name="unitario2" value="" style="padding: 5%" id="des5">
+          </td>
+          <td>
+                <input type="text" name="des2" value="" style="padding: 5%" id="des4" class="form-control"> 
+             </td>
+          <td>
+              <input type="number" class="monto input form-control" name="cantidad2" value=""style="padding: 5%" id="des6">
+          </td>
+
+          <td>
+                <img src="../img/c6.png" alt="">
+            </td>
+          <td>
+              <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="text" class="monto total form-control" value="0" disabled style="padding: 5%" id="des7">
+                </div>
+             
+          </td>
+      </tr>
+      <tr>
+          
+        
+          <td>
+              <input type="number" class="monto input form-control" name="unitario2" value="" style="padding: 5%" id="des9">
+          </td>
+          <td>
+                <input type="text" name="descr3" value="" style="padding: 5%" id="des8" class="form-control">
+               </td>
+          
+          <td>
+            
+              <input type="number" class="monto input form-control" name="cantidad3" value="" style="padding: 5%" id="des10">
+          </td>
+
+          <td>
+                <img src="../img/c6.png" alt="">
+            </td>
+          <td>
+              <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input type="text" class="monto total form-control" value="0" disabled style="padding: 5%" id="des11">
+                </div>
+            
+          </td>
+          
+      </tr>
+      <tr>
+          <td></td>
+          <td></td>
+          <td>
+            <h5 id="mostrarAca"></h5> 
+            <input type="text" style="width: 60%" value="00/100" class="form-control"> 
+          </td>
+          <td>  <div class="input-group">
+            <span class="input-group-addon">$</span>
+              <input type="text"id="precio_no_tax"  class="monto totales form-control" name="afectas" value="" disabled   onChange="multiplicar();"  onblur="document.getElementById('uno').value=this.value" style="width: 125%; text-align: right" >
+          </div>
+          <select name="monto" class="form-control oculto-impresion" placeholder="Monto" onChange="calculo();">
+            <option value="0" selected>Aca Para 13%</option>
+            <option value="13">13%</option>
+            <
+        </select> <div clsss="form-group">
+               
+          
+             IVA
+             <div clsss="form-group">
+               <input type="text" name="iva" class="form-control" placeholder="IVA" readonly>
+             </div>
+           </div>
+       
+      </div>
+    
+         
+            Subtotal
+            <div><input type="text" id="Total" name="Total" placeholder="Total"  style="width: 100%; text-align: right" class="form-control" value="$"></div>
+            (-)IVA Retenido
+            <div>
+                <input type="text" disabled style="width: 100%; text-align: right" class="form-control">
+            </div>
+            Ventas No Suejtas
+            <div>
+                <input type="text" disabled style="width: 100%; text-align: right" class="form-control">
+            </div>
+            Ventas Exentas
+            <div>
+                    <input type="text" disabled style="width: 100%; text-align: right" class="form-control">
+                </div>
+<script src="../js/calculo.js"></script>                
+   <script language="JavaScript">  
+          
+        </script>   
+        </head>
+         
+
+        <!-- <form id="multiplicar">
+           <div>
+            <input type="text" id="multiplicando" value=0 onChange="multiplicar();"  style="width: 175%; text-align:right; " required> 
+           </div>
+            <div>
+                <input type="text" id="multiplicador" value=0.13 onChange="multiplicar();" style="width: 175%; text-align:right; "> 
+            </div>
+            <input type="text" id="resultado"  style="width: 175%; text-align:right; ">
+          </form>
+          <script>
+            function multiplicar() 
+            </script>
+            <script>
+            function multiplicar(){
+      m1 = document.getElementById("precio_no_tax").value;
+      m2 = document.getElementById("multiplicador").value;
+      r = m1*m2;
+      document.getElementById("resultado").value = r;
+    }
+            </script>
+T            -->
+
+<div>
+  <!-- <input type="text" name="total" class="form-control" placeholder="Total" readonly > -->
+  <select name="tax" id="tax" onchange="calcular();" style="width: 100%;" class="oculto-impresion">
+      <option value="0" selected>Para Total Aca</option>
+      <option value="13">Total</option>
+      <
+  </select>
+     Total
+     <div class="input-group">
+        <span class="input-group-addon">$</span>
+          <input type="text" id="totaliva"  class="form-control" placeholder="Price"/ disabled>
+      </div>
+      <img src="../img/firmas3.png" alt="" >
+</div>
+
+  </td>
+</tr>
+</tbody>
+</table>
+<script type="text/javascript">
+   
+</script>
+
+<script type="text/javascript">
+ 
+</script>
+</head>
+<body>
+<input type="text" onkeyup="mostrarNumero(this)" name="son2" class="oculto-impresion" value="" />
+<h5 id="mostrarAca" translate="yes"></h5>
+</script>
+</table>
+
+
+        <button class="btn btn-primary oculto-impresion"id="boton" onclick="guardar()" >
+          Guardar Factura
+        </button>
+        
+        <button onclick="javascript:imprimir()" class="oculto-impresion btn btn-success"">Imprimir</button>
+
+    </div>
+  
+    <!-- <table class="table my-3">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Direccion</th>
+            <th scope="col"></th>
+            
+            
+          </tr>
+        </thead>
+        <tbody id="tabla">
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          
+        </tbody>
+      </table>
+     -->
+    <!--SCRIPT PARA OBTENR DATOS-->
+
+<script type="text/javascript">
+  var url_string = window.location.href; //
+  var url = new URL(url_string);
+  var uno = url.searchParams.get("n");
+  var dos = url.searchParams.get("d");
+  var tres = url.searchParams.get("m");
+  var cuatro = url.searchParams.get("de");
+  var cinco = url.searchParams.get("r");
+  var seis = url.searchParams.get("na");
+  var siete = url.searchParams.get("g");
+  
+  document.getElementById("nombre").value = uno;
+  
+  document.getElementById("dir").value = dos;
+  
+  document.getElementById("direccion").value = tres;
+  
+  document.getElementById("departamento").value = cuatro;
+  
+  document.getElementById("registro").value = cinco;
+  
+  document.getElementById("nit").value = seis;
+  document.getElementById("gi").value = siete;
+  </script>
+     <h1 class="btn btn-danger oculto-impresion"><a href="../../index.html" style="color: white" >Volver</a></h1 >  
+</script>
+<script src="../js/fire.js"></script>
+<script src="../js/print.js"></script>
+<script src="../js/credito.js"></script>
+<script src="../pruebas/new.js"></script>
+
+
+
+</body>
+
+</html>
+
